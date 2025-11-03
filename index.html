@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Anh Thơ Spa</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@400;500&display=swap" rel="stylesheet">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              'brand-primary': '#D4AF9A',
+              'brand-secondary': '#F3E9E1',
+              'brand-text': '#5C3A21',
+              'brand-dark': '#8B5E34',
+              'brand-light': '#FFF7F0',
+              'brand-accent': '#C7A17A',
+            },
+            fontFamily: {
+              'sans': ['Poppins', 'ui-sans-serif', 'system-ui'],
+              'serif': ['Playfair Display', 'ui-serif', 'Georgia'],
+            },
+            keyframes: {
+              fadeInUp: {
+                '0%': { opacity: '0', transform: 'translateY(10px)' },
+                '100%': { opacity: '1', transform: 'translateY(0)' },
+              },
+              fadeInDown: {
+                '0%': { opacity: '0', transform: 'translateY(-20px)' },
+                '100%': { opacity: '1', transform: 'translateY(0)' },
+              },
+              slideUpFade: {
+                '0%': { opacity: '0', transform: 'translateY(2rem)' },
+                '100%': { opacity: '1', transform: 'translateY(0)' },
+              },
+              pulse: {
+                '0%, 100%': { opacity: '0.7', transform: 'scale(1)' },
+                '50%': { opacity: '1', transform: 'scale(1.05)' },
+              },
+            },
+            animation: {
+              fadeInUp: 'fadeInUp 0.5s ease-out forwards',
+              fadeInDown: 'fadeInDown 0.5s ease-out forwards',
+              slideUpFade: 'slideUpFade 0.8s cubic-bezier(0.19, 1, 0.22, 1) forwards',
+              pulse: 'pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+            }
+          }
+        },
+        plugins: [
+          function({ addUtilities }) {
+            const newUtilities = {
+              '.animation-delay-300': {
+                'animation-delay': '300ms',
+              },
+              '.animation-delay-500': {
+                'animation-delay': '500ms',
+              },
+            }
+            addUtilities(newUtilities, ['responsive', 'hover'])
+          }
+        ]
+      }
+    </script>
+<script type="importmap">
+{
+  "imports": {
+    "react/": "https://aistudiocdn.com/react@^19.2.0/",
+    "react": "https://aistudiocdn.com/react@^19.2.0",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
+    "react-router-dom": "https://aistudiocdn.com/react-router-dom@^7.9.5",
+    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.28.0"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+<body class="bg-brand-light">
+<div id="root"></div>
+<script type="module" src="/index.tsx"></script>
+</body>
+</html>
